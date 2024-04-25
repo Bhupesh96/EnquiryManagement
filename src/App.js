@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Home from "./components/Home";
+import About from "./components/About";
+import Settings from "./components/Settings";
+import Eform from "./components/Eform";
+import Enquiries from "./components/Enquiries";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UserLogin from "./components/UserLogin";
+import UserSignUp from "./components/UserSignUp";
+import { AuthProvider } from "./components/context/AuthContext";
+import PrivateRoutes from "./components/PrivateRoutes";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+      <AuthProvider>
+        <Routes>
+          <Route exact path="/" element={<UserLogin />}></Route>
+          <Route exact path="/signup" element={<UserSignUp />}></Route>
+          <Route element={<PrivateRoutes />}>
+          <Route exact path="/home" element={<Home />}></Route>
+          <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/settings" element={<Settings />}></Route>
+          <Route exact path="/enquiry" element={<Eform />}></Route>
+          <Route exact path="/enquiries" element={<Enquiries />}></Route>
+        </Route>
+        </Routes>
+        </AuthProvider>
+      </Router>
+    </>
   );
 }
 
