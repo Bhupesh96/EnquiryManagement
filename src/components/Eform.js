@@ -9,7 +9,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import axios from 'axios';
-import BASE_URL from process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL;
 
 function Eform() {
   const [formData, setFormData] = useState({
