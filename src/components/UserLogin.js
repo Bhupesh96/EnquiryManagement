@@ -13,7 +13,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 function Copyright(props) {
@@ -34,6 +34,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function UserLogin() {
+  console.log('BASE_URL',BASE_URL)
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -48,7 +49,7 @@ export default function UserLogin() {
         event.preventDefault();
     
         try {
-          const response = await fetch(`${BASE_URL}/bhupesh/api/login`, {
+          const response = await fetch(`${BASE_URL}/api/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

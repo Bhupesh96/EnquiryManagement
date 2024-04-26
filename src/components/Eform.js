@@ -9,7 +9,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import axios from 'axios';
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function Eform() {
   const [formData, setFormData] = useState({
@@ -27,7 +27,7 @@ function Eform() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${BASE_URL}/bhupesh/api/enquiries`, formData);
+      await axios.post(`${BASE_URL}/api/enquiries`, formData);
       alert('Enquiry submitted successfully');
       setFormData({
         firstName: '',
