@@ -13,6 +13,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
+import BASE_URL from process.env.BASE_URL;
 
 
 function Copyright(props) {
@@ -47,7 +48,7 @@ export default function UserLogin() {
         event.preventDefault();
     
         try {
-          const response = await fetch('https://rjtechx.fun/bhupesh/api/login', {
+          const response = await fetch(`${BASE_URL}/bhupesh/api/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

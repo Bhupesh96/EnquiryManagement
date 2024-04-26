@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 import Sidenav from './Sidenav';
 import Swal from 'sweetalert2';
+import BASE_URL from process.env.BASE_URL;
+
 
 const columns = [
   { id: 'firstName', label: 'First Name', minWidth: 170 },
@@ -33,7 +35,7 @@ export default function Enquiries() {
 
   const fetchEnquiries = async () => {
     try {
-      const response = await axios.get('https://rjtechx.fun/bhupesh/api/enquiries');
+      const response = await axios.get(`${BASE_URL}/bhupesh/api/enquiries`);
       setEnquiries(response.data);
     } catch (error) {
       console.error('Error fetching enquiries:', error);
@@ -62,7 +64,7 @@ export default function Enquiries() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`https://rjtechx.fun/bhupesh/api/enquiries/${id}`);
+          await axios.delete(`${BASE_URL}/bhupesh/api/enquiries/${id}`);
           fetchEnquiries(); // Refetch enquiries after deletion
           Swal.fire({
             title: "Deleted!",
@@ -106,7 +108,7 @@ export default function Enquiries() {
     
     if (editedEnquiry.isConfirmed) {
       try {
-        await axios.put(`https://rjtechx.fun/bhupesh/api/enquiries/${_id}`, editedEnquiry.value);
+        await axios.put(`${BASE_URL}/bhupesh/api/enquiries/${_id}`, editedEnquiry.value);
         fetchEnquiries(); // Refetch enquiries after updating
         Swal.fire({
           title: "Updated!",

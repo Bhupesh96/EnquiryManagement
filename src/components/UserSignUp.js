@@ -12,6 +12,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { useState } from "react";
+import BASE_URL from process.env.BASE_URL;
 function Copyright(props) {
   return (
     <Typography
@@ -50,7 +51,7 @@ export default function UserSignUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("https://rjtechx.fun/bhupesh/api/signup", formData);
+      const response = await axios.post(`${BASE_URL}/bhupesh/api/signup`, formData);
       setSuccessMessage("User registered successfully");
       setErrorMessage(""); // Reset error message
       console.log(response.data); // Log success message
