@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 import Sidenav from './Sidenav';
 import Swal from 'sweetalert2';
-import BASE_URL from process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL;
 
 
 const columns = [

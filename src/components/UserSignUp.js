@@ -12,7 +12,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { useState } from "react";
-import BASE_URL from process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL;
 function Copyright(props) {
   return (
     <Typography

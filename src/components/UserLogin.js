@@ -13,7 +13,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
-import BASE_URL from process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL;
 
 
 function Copyright(props) {
